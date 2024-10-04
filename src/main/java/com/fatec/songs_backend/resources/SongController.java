@@ -3,6 +3,7 @@ package com.fatec.songs_backend.resources;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,5 +33,10 @@ public class SongController {
     @PostMapping
     public Song postSong(@RequestBody Song song){
         return songService.post(song);
+    }
+
+    @DeleteMapping("{id}")
+    public void deleteSong(@PathVariable int id){
+        songService.delete(id);
     }
 }
